@@ -41,6 +41,7 @@ class Tool:
             f" Outputs: {self.outputs}"
         )
 
+
     def __call__(self, *args, **kwargs):
         """
         Invoke the underlying function (callable) with provided arguments.
