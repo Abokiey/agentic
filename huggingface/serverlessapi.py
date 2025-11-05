@@ -5,3 +5,4 @@ from huggingface_hub import inferenceClient
 # HF_TOKEN = os.environ.get("HF_TOKEN")
 
 Client = inferenceClient(model="meta-llama/Llama-4-Scout-17B-16E-Instruct")
+
