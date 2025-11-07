@@ -9,14 +9,32 @@ from Gradio_UI import GradioUI
 
 # Below is an example of a tool that does nothing. Amaze us with your creativity !
 @tool
-def my_custom_tool(arg1:str, arg2:int)-> str: #it's import to specify the return type
-    #Keep this format for the description / args / args description but feel free to modify the tool
-    """A tool that does nothing yet 
-    Args:
-        arg1: the first argument
-        arg2: the second argument
+def get_weather(city: str) -> str:
+    """Fetches the current weather information for a specified city
+        args:
+                city: the name of the  city
     """
-    return "What magic will you build ?"
+    try:
+        url = f"https://wttr.in/{city}?format=j1"
+        response = requests.get(url, timeout=10)
+
+        if response.status_code == 200:
+            data = response.json()
+            current = data['current_condition'][0]
+
+            weather_info = f"""
+Weather in {city}:
+- Temperature: {current['temp_C']}°C ({current['temp_F']}°F)
+- Condition: {current['weatherDesc'][0]['value']}
+- Humidity: {current['humidity']}%
+- Wind Speed: {current['windspeedKmph']} km/h
+- Feels Like: {current['FeelsLikeC']}°C
+"""
+            return weather_info.strip()
+        else:
+            return f"Could not find the weather for {city}"
+    except Exception as e:
+        return f"Error fetching weather: {str(e)}" 
 
 @tool
 def get_current_time_in_timezone(timezone: str) -> str:
