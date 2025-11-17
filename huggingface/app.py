@@ -66,6 +66,7 @@ custom_role_conversions=None,
 )
 
 
+
 # Import tool from Hub
 image_generation_tool = load_tool("agents-course/text-to-image", trust_remote_code=True)
 
