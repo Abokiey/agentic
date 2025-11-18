@@ -14,6 +14,7 @@ def get_weather(city: str) -> str:
         args:
                 city: the name of the  city
     """
+    
     try:
         url = f"https://wttr.in/{city}?format=j1"
         response = requests.get(url, timeout=10)
