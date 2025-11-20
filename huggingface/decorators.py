@@ -25,7 +25,7 @@ class Tool:
         self.arguments = arguments
         self.outputs = outputs
 
-
+ 
     def to_string(self) -> str:
         """
         Return a string representation of the tool,
