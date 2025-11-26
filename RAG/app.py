@@ -7,6 +7,7 @@ from chromadb.utils import embedding_functions
 # Load environment variables from .env file
 load_dotenv()
 
+
 # Retrieve Anthropic API key from environment variables
 claudeai_api_key = os.getenv("ANTHROPIC_API_KEY")  # Standard naming
 
