@@ -18,6 +18,7 @@ chroma_client = chromadb.PersistentClient(path="./chroma_db")
 # You should use a different embedding function
 default_ef = embedding_functions.DefaultEmbeddingFunction()
 
+
 collection = chroma_client.get_or_create_collection(
     name="my_collection",
     embedding_function=default_ef,
