@@ -37,4 +37,3 @@ message = client.messages.create(
 )
 
 print(message.content[0].text)
-
